@@ -9,7 +9,6 @@ import styles from './LoadingScreen.module.scss';
 const LoadingScreen: FC = () => {
   const ref = useRef<ReturnType<typeof setTimeout>>();
   const { zodiac, gender } = useSelector(state => state.userInfo);
-  console.log(zodiac);
 
   const navigate = useNavigate();
 

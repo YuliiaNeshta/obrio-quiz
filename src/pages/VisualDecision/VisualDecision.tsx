@@ -6,8 +6,11 @@ import Button from '../../components/Button';
 import Header from '../../components/Header/Header';
 import { EMAIL } from '../../constants/routes';
 import styles from './VisualDecision.module.scss';
+// @ts-ignore
 import { ReactComponent as Heart } from '../../assets/heart.svg';
+// @ts-ignore
 import { ReactComponent as Brain } from '../../assets/brain.svg';
+// @ts-ignore
 import { ReactComponent as Balance } from '../../assets/balance.svg';
 
 interface StatusScreenProps {

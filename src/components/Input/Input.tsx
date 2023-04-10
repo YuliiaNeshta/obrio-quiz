@@ -1,16 +1,12 @@
 import React, { FC, useState } from 'react';
 import styles from './Input.module.scss';
+import { InputProps } from './types';
 
-interface InputProps {
-  placeholder: string;
-  type: 'email' | 'number' | 'text';
-  onValidate: (arg0: boolean) => void;
-}
 const Input: FC<InputProps> = ({ placeholder, type = 'text', onValidate }) => {
-  const [value, setValue] = useState('');
+  const [inputValue, setInputValue] = useState('');
 
   const handleChange = (event: React.FormEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
+    setInputValue(event.target.value);
 
     if (type === 'email') {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -19,7 +15,13 @@ const Input: FC<InputProps> = ({ placeholder, type = 'text', onValidate }) => {
   };
 
   return (
-    <input value={value} type={type} onChange={handleChange} placeholder={placeholder} className={styles.input}></input>
+    <input
+      value={inputValue}
+      type={type}
+      onChange={handleChange}
+      placeholder={placeholder}
+      className={styles.input}
+    ></input>
   );
 };
 

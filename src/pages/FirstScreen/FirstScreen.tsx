@@ -1,21 +1,25 @@
-import React, { FC } from 'react';
 import cn from 'classnames';
+import React, { FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+// @ts-ignore
+import { ReactComponent as ArrowRight } from '../../assets/arrow.svg';
+// @ts-ignore
+import { ReactComponent as Female } from '../../assets/female.svg';
+// @ts-ignore
+import { ReactComponent as Male } from '../../assets/male.svg';
 import Header from '../../components/Header/Header';
 import { DATE } from '../../constants/routes';
 import { setGender } from '../../store/actions';
-import { FirstScreenProps } from './types';
 import styles from './FirstScreen.module.scss';
-import { ReactComponent as Male } from '../../assets/male.svg';
-import { ReactComponent as Female } from '../../assets/female.svg';
-import { ReactComponent as ArrowRight } from '../../assets/arrow.svg';
+import { FirstScreenProps } from './types';
 
 const FirstScreen: FC<FirstScreenProps> = ({ onClick }) => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
   const handleGenderSelect = (gender: string) => {
+    // @ts-ignore
     dispatch(setGender(gender));
     navigate(DATE);
   };

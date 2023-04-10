@@ -1,13 +1,14 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
 import { DECISION } from '../../constants/routes';
+import { StateProps } from '../../store/types';
 import styles from './SingleProblem.module.scss';
 
 const SingleProblem: FC = () => {
-  const { gender, age, children } = useSelector(state => state.userInfo);
+  const { gender, age, children } = useSelector((state: StateProps) => state.userInfo);
   const navigate = useNavigate();
 
   const nextQuestion = () => {

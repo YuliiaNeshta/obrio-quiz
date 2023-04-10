@@ -1,12 +1,12 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
 import Select from '../../components/Select';
-import { LAST_DAY_OF_SIGN, MONTHS, TIMEOUT, ZODIAC_SIGNS } from '../../constants/data';
-import { DATA_LOADING, STATUS } from '../../constants/routes';
-import { setZodiac, setDateOfBirth, setAge } from '../../store/actions';
+import { LAST_DAY_OF_SIGN, MONTHS, ZODIAC_SIGNS } from '../../constants/data';
+import { DATA_LOADING } from '../../constants/routes';
+import { setAge, setDateOfBirth, setZodiac } from '../../store/actions';
 import styles from './DateScreen.module.scss';
 
 const DateScreen: FC = () => {
@@ -30,7 +30,6 @@ const DateScreen: FC = () => {
     const monthIndex = MONTHS.indexOf(month);
     const zodiacIndex = day > LAST_DAY_OF_SIGN[monthIndex] ? monthIndex + 1 : monthIndex;
     const zodiacSign = ZODIAC_SIGNS[zodiacIndex];
-    console.log(zodiacSign);
 
     return zodiacSign;
   };
@@ -51,7 +50,7 @@ const DateScreen: FC = () => {
   const handleSelectChangDay = (value: number) => {
     setSelectedDay(value);
   };
-  const handleSelectChangeMonth = (value: number) => {
+  const handleSelectChangeMonth = (value: string) => {
     setSelectedMonth(value);
   };
 
