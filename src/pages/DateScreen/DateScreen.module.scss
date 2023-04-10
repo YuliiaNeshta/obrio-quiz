@@ -1,0 +1,21 @@
+.wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.selects{
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 13.75rem;
+  margin-inline: auto;
+  margin-top: 2rem;
+  align-self: stretch;
+}
+
+.button{
+  margin-top: 2rem;
+}

@@ -65,7 +65,8 @@ select {
 .content{
   max-width: 20.625rem;
   width: 100%;
-  margin-block: auto;
+  margin-inline: auto;
+  text-align: center;
 }
 
 .heading-xl{
@@ -74,6 +75,9 @@ select {
   color: #333333;
   margin-bottom: 1.875rem;
   text-align: center;
+  &.white{
+     color: #FBFBFF;
+  }
 }
 
 .buttons{
@@ -81,4 +85,15 @@ select {
   flex-direction: column;
   gap: 1.25rem;
   margin-bottom: 1.25rem;
+}
+
+.wrapper{
+  width: 100%;
+  min-height: 100vh;
+  color: #333333;
+  background: #FFF0F0;
+  &.gradient{
+    color: #FFFFFF;
+    background: linear-gradient(165.54deg, #141333 -33.39%, #202261 15.89%, #543C97 55.84%, #6939A2 74.96%);
+  }
 }

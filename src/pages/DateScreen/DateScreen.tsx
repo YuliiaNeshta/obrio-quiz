@@ -1,9 +1,22 @@
-import React, { FC } from 'react';
-import Select from '../../components/Select/Select';
-import { DAYS_IN_MONTH, MONTHS } from '../../constants/constants';
+import React, { FC, useEffect, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import Button from '../../components/Button';
+import Header from '../../components/Header';
+import Select from '../../components/Select';
+import { LAST_DAY_OF_SIGN, MONTHS, TIMEOUT, ZODIAC_SIGNS } from '../../constants/data';
+import { DATA_LOADING, STATUS } from '../../constants/routes';
+import { setZodiac, setDateOfBirth, setAge } from '../../store/actions';
 import styles from './DateScreen.module.scss';
 
-const DateScreen: FC<DateScreenProps> = ({ onClick }) => {
+const DateScreen: FC = () => {
+  const [selectedDay, setSelectedDay] = useState(1);
+  const [selectedMonth, setSelectedMonth] = useState('');
+  const [selectedYear, setSelectedYear] = useState('');
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const birthYears = [];
   const currentYear = new Date().getFullYear();
 
@@ -13,12 +26,61 @@ const DateScreen: FC<DateScreenProps> = ({ onClick }) => {
 
   const daysInMonth = Array.from({ length: 31 }, (_, index) => index + 1);
 
+  const calculateZodiacSign = (day: number, month: string) => {
+    const monthIndex = MONTHS.indexOf(month);
+    const zodiacIndex = day > LAST_DAY_OF_SIGN[monthIndex] ? monthIndex + 1 : monthIndex;
+    const zodiacSign = ZODIAC_SIGNS[zodiacIndex];
+    console.log(zodiacSign);
+
+    return zodiacSign;
+  };
+
+  const getAge = (day: number, month: string, year: number) => {
+    const birthDate = new Date(`${month} ${day}, ${year}`);
+    const now = new Date();
+    let age = now.getFullYear() - birthDate.getFullYear();
+    if (
+      now.getMonth() < birthDate.getMonth() ||
+      (now.getMonth() === birthDate.getMonth() && now.getDate() < birthDate.getDate())
+    ) {
+      age--;
+    }
+    return age;
+  };
+
+  const handleSelectChangDay = (value: number) => {
+    setSelectedDay(value);
+  };
+  const handleSelectChangeMonth = (value: number) => {
+    setSelectedMonth(value);
+  };
+
+  const handleSelectChangeYear = (value: number) => {
+    setSelectedYear(value);
+  };
+
+  useEffect(() => {
+    dispatch(setZodiac(calculateZodiacSign(selectedDay, selectedMonth)));
+    dispatch(setDateOfBirth(`${selectedDay} ${selectedMonth} ${selectedYear}`));
+    dispatch(setAge(getAge(selectedDay, selectedMonth, selectedYear)));
+  }, [selectedDay, selectedMonth, selectedYear]);
+
+  const nextQuestion = () => {
+    navigate(DATA_LOADING);
+  };
+
   return (
     <div className={styles.wrapper}>
+      <Header />
       <h1 className={styles.heading}>What’s your date of birth?</h1>
-      <Select options={MONTHS} />
-      <Select options={daysInMonth} />
-      <Select options={birthYears} />
+      <div className={styles.selects}>
+        <Select options={MONTHS} placeholder="Month" onChange={handleSelectChangeMonth} />
+        <Select options={daysInMonth} placeholder="Day" onChange={handleSelectChangDay} />
+        <Select options={birthYears} placeholder="Year" onChange={handleSelectChangeYear} />
+      </div>
+      <Button type="gradient" className={styles.button} onClick={nextQuestion}>
+        Next
+      </Button>
     </div>
   );
 };

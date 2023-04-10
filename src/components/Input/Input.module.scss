@@ -7,6 +7,8 @@
   padding-inline: 1rem;
   color: $text-color;
   transition: boder-color 0.3s ease;
+  background-color: #FFF0F0;
+  width: 100%;
   &::placeholder{
     font-weight: 400;
     font-size: 14px;

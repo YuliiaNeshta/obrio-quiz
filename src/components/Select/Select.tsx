@@ -3,17 +3,23 @@ import styles from './Select.module.scss';
 import { CustomSelectProps } from './types';
 import { ReactComponent as SelectArrow } from '../../assets/arrow-down.svg';
 
-const CustomSelect: FC<CustomSelectProps> = ({ options }) => {
+const CustomSelect: FC<CustomSelectProps> = ({ options, placeholder, onChange }) => {
   const [selectedOption, setSelectedOption] = useState('');
 
   const handleOptionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedOption(e.target.value);
+    const { value } = e.target;
+    setSelectedOption(value);
+    if (onChange) {
+      onChange(value);
+    }
   };
 
   return (
-    <div className={styles.select}>
-      <select value={selectedOption} onChange={handleOptionChange}>
-        <option value="">Select an option</option>
+    <div className={styles.selectWrapper}>
+      <select className={styles.select} value={selectedOption} onChange={handleOptionChange}>
+        <option className={styles.option} value="">
+          {placeholder}
+        </option>
         {options.map(option => (
           <option key={option} value={option}>
             {option}

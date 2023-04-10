@@ -1,63 +1,48 @@
-import { useState } from 'react';
-import Button from './components/Button';
-import logo from './assets/logo_black.png';
-import styles from './App.module.scss';
-import { ReactComponent as ArrowBack } from './assets/previous-arrow.svg';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { ReactComponent as Brain } from './assets/brain.svg';
 import DateScreen from './pages/DateScreen/DateScreen';
+import DecisionScreen from './pages/DecisionScreen';
+import Email from './pages/Email';
 import FirstScreen from './pages/FirstScreen';
 import LoadingScreen from './pages/LoadingScreen';
+import ParentScreen from './pages/ParentScreen';
+import RelationshipProblem from './pages/RelationshipProblem';
+import SingleParentScreen from './pages/SingleParentScreen';
+import SingleProblem from './pages/SingleProblem';
 import StatusScreen from './pages/StatusScreen';
+import VisualDecision from './pages/VisualDecision/VisualDecision';
+import {
+  FIRST_SCREEN,
+  PARENT,
+  EMAIL,
+  DECISION,
+  DATE,
+  STATUS,
+  DECISION_VISUAL,
+  DATA_LOADING,
+  SINGLE_PROBLEM,
+  PARTNER_PROBLEM,
+  SINGLE_PARENT,
+} from './constants/routes';
 
 function App() {
-  const [currentQuestion, setCurrentQuestion] = useState(1);
-
-  const handleNextQuestion = () => {
-    if (currentQuestion < 4) {
-      setCurrentQuestion(currentQuestion + 1);
-    }
-  };
-
-  const handlePreviousQuestion = () => {
-    if (currentQuestion > 1) {
-      setCurrentQuestion(currentQuestion - 1);
-    }
-  };
-
-  let question;
-
-  switch (currentQuestion) {
-    case 1:
-      question = <FirstScreen />;
-      break;
-    case 2:
-      question = <DateScreen />;
-      break;
-    case 3:
-      question = <LoadingScreen />;
-      break;
-    case 4:
-      question = <StatusScreen />;
-      break;
-    default:
-      question = null;
-  }
-
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.header}>
-        {currentQuestion > 1 && (
-          <button className={styles.buttonBack} onClick={handlePreviousQuestion}>
-            <ArrowBack />
-          </button>
-        )}
-
-        <img className={styles.logo} src={logo} alt="Nebula" />
-      </div>
-      {question}
-      <Button type="gradient" onClick={handleNextQuestion}>
-        Next
-      </Button>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path={FIRST_SCREEN} element={<FirstScreen />} />
+        <Route path={DATE} element={<DateScreen />} />
+        <Route path={DATA_LOADING} element={<LoadingScreen />} />
+        <Route path={STATUS} element={<StatusScreen />} />
+        <Route path={SINGLE_PROBLEM} element={<SingleProblem />} />
+        <Route path={PARTNER_PROBLEM} element={<RelationshipProblem />} />
+        <Route path={PARENT} element={<ParentScreen />} />
+        <Route path={SINGLE_PARENT} element={<SingleParentScreen />} />
+        <Route path={DECISION} element={<DecisionScreen />} />
+        <Route path={DECISION_VISUAL} element={<VisualDecision imageSrc={<Brain />} />} />
+        <Route path={EMAIL} element={<Email />} />
+        <Route path="*" element={<Navigate to={FIRST_SCREEN} />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

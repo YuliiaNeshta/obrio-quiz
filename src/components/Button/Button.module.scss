@@ -16,7 +16,7 @@
   text-align: center;
 
   cursor: pointer;
-  transition: background 0.5s ease ;
+  transition: all 0.5s ease ;
 
   &.gradient {
     background: linear-gradient(165.54deg, #141333 -33.39%, #202261 15.89%, #543C97 55.84%, #6939A2 74.96%);
@@ -30,15 +30,41 @@
 
   &.fill{
     color: #000000;
-    background: #EAEEF7;
+    background-color: #EAEEF7;
     border: 1px solid #E0E0E0;
     box-shadow: 2px 2px 6px rgba(84, 60, 151, 0.25);
     height: 4rem;
     font-weight: 400;
     font-size: 0.875rem;
     line-height: 140%;
+    &:active{
+      color: #FAFAFA;
+      background: linear-gradient(165.54deg, #141333 -33.39%, #202261 15.89%, #543C97 55.84%, #6939A2 74.96%);
+    }
     &:hover{
       background: #e5edff;
+    }
+  }
+  &.white{
+    padding: 0.875rem 3.75rem;
+    min-width: 10rem;
+    height: 3.0625rem;
+    background-color: #FBFBFF;
+    border-radius: 1rem;
+    font-size: 1.125rem;
+    color: #6A3AA2;
+    &:hover{
+      background: #e5edff;
+    }
+  }
+  &.bordered{
+    font-size: 1.125rem;
+    color: #FBFBFF;
+    background-color: transparent;
+    border: 1px solid #FBFBFF;
+    &:hover{
+      background: #FBFBFF;
+      color: #6A3AA2;
     }
   }
 }

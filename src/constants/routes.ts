@@ -1,0 +1,11 @@
+export const FIRST_SCREEN = '/';
+export const DATE = '/date';
+export const DATA_LOADING = '/database';
+export const STATUS = '/status';
+export const PARENT = '/parent';
+export const SINGLE_PARENT = '/single-parent';
+export const SINGLE_PROBLEM = '/problems-single';
+export const PARTNER_PROBLEM = '/problems-partner';
+export const DECISION = '/decision';
+export const DECISION_VISUAL = '/decision-answer';
+export const EMAIL = '/email';

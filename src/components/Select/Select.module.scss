@@ -1,0 +1,32 @@
+.selectWrapper{
+  position: relative;
+}
+
+.select{
+  appearance: none;
+  height: 2.4375rem;
+  width: 100%;
+  background-color: transparent;
+  padding: 0.5625rem 2.125rem 0.5625rem 1.125rem;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 140%;
+  color: #4F4F4F;
+  border: 1px solid #C6C6C6;
+  border-radius: 1.25rem;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+}
+
+.selectArrow{
+  position: absolute;
+  top: 0.5rem;
+  right: 1.125rem;
+  & svg {
+    width: 0.75rem;
+    height: 0.5rem;
+  }
+}
+
+

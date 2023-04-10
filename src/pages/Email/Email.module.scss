@@ -1,0 +1,31 @@
+.description{
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 130%;
+  text-align: center;
+  color: #343434;
+  margin-top: 1.875rem;
+  margin-bottom: 1.25rem;
+}
+
+.footerText{
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 130%;
+  text-align: center;
+  color: #343434;
+  margin-bottom: 3.125rem;
+}
+
+.link{
+  color: #8E8CF0;
+  text-decoration: underline;
+  &:hover{
+    text-decoration: none;
+  }
+}
+
+.button{
+  margin-inline: auto;
+  width: 100%;
+}
