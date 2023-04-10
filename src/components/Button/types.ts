@@ -5,4 +5,5 @@ export interface ButtonProps {
   className?: string;
   onClick?: (event: MouseEvent) => void;
   type: 'gradient' | 'fill' | 'white' | 'bordered';
+  isDisabled?: boolean;
 }

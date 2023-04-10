@@ -17,7 +17,6 @@ const SingleParentScreen: FC = () => {
     } else {
       navigate(PARTNER_PROBLEM);
     }
-    console.log(isSingleParent);
     dispatch(setSingleParent(isSingleParent));
   };
 
