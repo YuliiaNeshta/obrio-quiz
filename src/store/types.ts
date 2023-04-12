@@ -1,7 +1,7 @@
 export interface UserInfoStateProps {
   gender: string;
   dateOfBirth: string;
-  age: string;
+  age: number;
   zodiac: string;
   children: boolean;
   singleParent: boolean;
@@ -10,5 +10,5 @@ export interface UserInfoStateProps {
 }
 
 export interface StateProps {
-  userInfo: UserInfoState;
+  userInfo: UserInfoStateProps;
 }

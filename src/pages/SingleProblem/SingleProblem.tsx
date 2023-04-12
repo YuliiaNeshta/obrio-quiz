@@ -16,14 +16,14 @@ const SingleProblem: FC = () => {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className="wrapper">
       <Header />
       <div className="content">
         <h1 className="heading-xl">
           Single {gender === 'Male' ? 'man' : 'woman'} {age} years {children ? 'who have children' : ''} need a slightly
           different approach to find their perfect partner. But first, how did you feel in your last relationship?
         </h1>
-        <div className="buttons">
+        <div className={styles.buttons}>
           <Button type="fill" onClick={nextQuestion}>
             I was unhappy with low things were going in my relationship
           </Button>

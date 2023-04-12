@@ -1,4 +1,4 @@
-import { createReducer } from '@reduxjs/toolkit';
+import { createReducer, PayloadAction } from '@reduxjs/toolkit';
 import {
   setAge,
   setChildren,
@@ -14,7 +14,7 @@ import { UserInfoStateProps } from './types';
 const userInfoState: UserInfoStateProps = {
   gender: '',
   dateOfBirth: '',
-  age: '',
+  age: 0,
   zodiac: '',
   children: false,
   singleParent: false,
@@ -23,30 +23,29 @@ const userInfoState: UserInfoStateProps = {
 };
 
 const userInfoReducer = createReducer(userInfoState, {
-  [setGender.type]: (state, action) => {
+  [setGender.type]: (state, action: PayloadAction<string>) => {
     state.gender = action.payload;
   },
-  [setDateOfBirth.type]: (state, action) => {
+  [setDateOfBirth.type]: (state, action: PayloadAction<string>) => {
     state.dateOfBirth = action.payload;
   },
-  [setAge.type]: (state, action) => {
+  [setAge.type]: (state, action: PayloadAction<number>) => {
     state.age = action.payload;
   },
-  [setZodiac.type]: (state, action) => {
+  [setZodiac.type]: (state, action: PayloadAction<string>) => {
     state.zodiac = action.payload;
   },
-  [setChildren.type]: (state, action) => {
+  [setChildren.type]: (state, action: PayloadAction<boolean>) => {
     state.children = action.payload;
   },
-  [setStatus.type]: (state, action) => {
+  [setStatus.type]: (state, action: PayloadAction<string>) => {
     state.status = action.payload;
   },
-  [setSingleParent.type]: (state, action) => {
+  [setSingleParent.type]: (state, action: PayloadAction<boolean>) => {
     state.singleParent = action.payload;
   },
-  [setDecision.type]: (state, action) => {
+  [setDecision.type]: (state, action: PayloadAction<string>) => {
     state.decision = action.payload;
   },
 });
-
 export default userInfoReducer;

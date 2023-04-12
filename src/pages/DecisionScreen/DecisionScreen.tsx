@@ -5,7 +5,6 @@ import Button from '../../components/Button';
 import Header from '../../components/Header/Header';
 import { DECISION_VISUAL } from '../../constants/routes';
 import { setDecision } from '../../store/actions';
-import styles from './DecisionScreen.module.scss';
 
 const DecisionScreen: FC = () => {
   const dispatch = useDispatch();
@@ -17,7 +16,7 @@ const DecisionScreen: FC = () => {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className="wrapper">
       <Header />
       <div className="content">
         <h1 className="heading-xl">Do you make decisions with your head or your heart?</h1>

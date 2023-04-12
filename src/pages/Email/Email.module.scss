@@ -1,9 +1,11 @@
+@import "../../styles/_colors.scss";
+
 .description{
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 130%;
   text-align: center;
-  color: #343434;
+  color: $text-color;
   margin-top: 1.875rem;
   margin-bottom: 1.25rem;
 }
@@ -18,7 +20,7 @@
 }
 
 .link{
-  color: #8E8CF0;
+  color: $accent;
   text-decoration: underline;
   &:hover{
     text-decoration: none;
@@ -31,7 +33,7 @@
 }
 
 .errorText{
-  color: tomato;
+  color: $error;
   font-size: 0.8125rem;
   margin-top: 0.625rem;
 }

@@ -1,5 +1,18 @@
+import React from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { ReactComponent as Brain } from './assets/brain.svg';
+import {
+  DATA_LOADING,
+  DATE,
+  DECISION,
+  DECISION_VISUAL,
+  EMAIL,
+  FIRST_SCREEN,
+  PARENT,
+  PARTNER_PROBLEM,
+  SINGLE_PARENT,
+  SINGLE_PROBLEM,
+  STATUS,
+} from './constants/routes';
 import DateScreen from './pages/DateScreen/DateScreen';
 import DecisionScreen from './pages/DecisionScreen';
 import Email from './pages/Email';
@@ -11,19 +24,6 @@ import SingleParentScreen from './pages/SingleParentScreen';
 import SingleProblem from './pages/SingleProblem';
 import StatusScreen from './pages/StatusScreen';
 import VisualDecision from './pages/VisualDecision/VisualDecision';
-import {
-  FIRST_SCREEN,
-  PARENT,
-  EMAIL,
-  DECISION,
-  DATE,
-  STATUS,
-  DECISION_VISUAL,
-  DATA_LOADING,
-  SINGLE_PROBLEM,
-  PARTNER_PROBLEM,
-  SINGLE_PARENT,
-} from './constants/routes';
 
 function App() {
   return (
@@ -38,7 +38,7 @@ function App() {
         <Route path={PARENT} element={<ParentScreen />} />
         <Route path={SINGLE_PARENT} element={<SingleParentScreen />} />
         <Route path={DECISION} element={<DecisionScreen />} />
-        <Route path={DECISION_VISUAL} element={<VisualDecision imageSrc={<Brain />} />} />
+        <Route path={DECISION_VISUAL} element={<VisualDecision />} />
         <Route path={EMAIL} element={<Email />} />
         <Route path="*" element={<Navigate to={FIRST_SCREEN} />} />
       </Routes>

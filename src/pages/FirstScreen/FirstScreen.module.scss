@@ -5,7 +5,7 @@
   font-size: 0.875rem;
   line-height: 171%;
   text-align: center;
-  color: #4E4E4E;
+  color: $text-color-secondary;
   margin-bottom: 2.5rem;
 }
 
@@ -14,7 +14,7 @@
   font-size: 1rem;
   line-height: 150%;
   text-align: center;
-  color: #4E4E4E;
+  color: $text-color-secondary;
   margin-bottom: 2.5rem;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .buttonText{
-  background: #454895;
+  background: $accent02;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   font-weight: 400;
   font-size: 1.125rem;
@@ -43,7 +43,7 @@
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
   &.gradient{
-    background: linear-gradient(125.02deg, #642B73 18.39%, #C6426E 81.83%);
+    background: $buttonGradient;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   }
 }
@@ -61,14 +61,13 @@
   line-height: 140%;
   text-align: center;
   margin-bottom: 0.875rem;
-  color: #4F4F4F;
+  color: $text-color-secondary;
 }
 
 .link{
   display: inline-block;
   color: inherit;
   text-decoration: underline;
-  margin-right: 2px;
   &:hover{
     text-decoration: none;
   }

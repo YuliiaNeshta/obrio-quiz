@@ -4,9 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button';
 import Header from '../../components/Header/Header';
 import { DECISION } from '../../constants/routes';
+import { UserInfoStateProps } from '../../store/types';
 
 const RelationshipProblem: FC = () => {
-  const { gender, children, age } = useSelector(state => state.userInfo);
+  const { gender, children, age } = useSelector((state: { userInfo: UserInfoStateProps }) => state.userInfo);
   const navigate = useNavigate();
 
   const nextQuestion = () => {
@@ -14,7 +15,7 @@ const RelationshipProblem: FC = () => {
   };
 
   return (
-    <div>
+    <div className="wrapper">
       <Header />
       <div className="content">
         <h1 className="heading-xl">

@@ -7,8 +7,6 @@ import styles from './Email.module.scss';
 const Email: FC = () => {
   const [isEmailValid, setIsEmailValid] = useState(false);
 
-  console.log(isEmailValid);
-
   return (
     <div className="wrapper">
       <Header />
@@ -21,12 +19,12 @@ const Email: FC = () => {
         </p>
         <p className={styles.footerText}>
           By continuing I agree with
-          <a href="https://asknebula.com/app/privacy-policy" target="_blank" className={styles.link}>
+          <a href="https://asknebula.com/app/privacy-policy" target="_blank" className={styles.link} rel="noreferrer">
             {' '}
             Privacy police{' '}
           </a>{' '}
           and{' '}
-          <a href="https://asknebula.com/app/terms" target="_blank" className={styles.link}>
+          <a href="https://asknebula.com/app/terms" target="_blank" className={styles.link} rel="noreferrer">
             {' '}
             Terms of use{' '}
           </a>

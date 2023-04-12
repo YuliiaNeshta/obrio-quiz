@@ -5,7 +5,6 @@ import Button from '../../components/Button';
 import Header from '../../components/Header/Header';
 import { PARTNER_PROBLEM, SINGLE_PROBLEM } from '../../constants/routes';
 import { setChildren } from '../../store/actions';
-import styles from './SingleParentScreen.module.scss';
 
 const SingleParentScreen: FC = () => {
   const dispatch = useDispatch();
@@ -17,12 +16,11 @@ const SingleParentScreen: FC = () => {
     } else {
       navigate(PARTNER_PROBLEM);
     }
-    console.log(isSingleParent);
     dispatch(setChildren(isSingleParent));
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className="wrapper">
       <Header />
       <div className="content">
         <h1 className="heading-xl">Are you a single parent?</h1>

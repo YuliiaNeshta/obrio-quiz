@@ -10,9 +10,9 @@ import { setAge, setDateOfBirth, setZodiac } from '../../store/actions';
 import styles from './DateScreen.module.scss';
 
 const DateScreen: FC = () => {
-  const [selectedDay, setSelectedDay] = useState(1);
+  const [selectedDay, setSelectedDay] = useState(0);
   const [selectedMonth, setSelectedMonth] = useState('');
-  const [selectedYear, setSelectedYear] = useState('');
+  const [selectedYear, setSelectedYear] = useState(0);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -47,7 +47,7 @@ const DateScreen: FC = () => {
     return age;
   };
 
-  const handleSelectChangDay = (value: number) => {
+  const handleSelectChangeDay = (value: number) => {
     setSelectedDay(value);
   };
   const handleSelectChangeMonth = (value: string) => {
@@ -69,17 +69,19 @@ const DateScreen: FC = () => {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className="wrapper">
       <Header />
-      <h1 className={styles.heading}>What’s your date of birth?</h1>
-      <div className={styles.selects}>
-        <Select options={MONTHS} placeholder="Month" onChange={handleSelectChangeMonth} />
-        <Select options={daysInMonth} placeholder="Day" onChange={handleSelectChangDay} />
-        <Select options={birthYears} placeholder="Year" onChange={handleSelectChangeYear} />
+      <div className="content">
+        <h1 className={styles.heading}>What’s your date of birth?</h1>
+        <div className={styles.selects}>
+          <Select options={MONTHS} placeholder="Month" onChange={handleSelectChangeMonth} />
+          <Select options={daysInMonth} placeholder="Day" onChange={handleSelectChangeDay} />
+          <Select options={birthYears} placeholder="Year" onChange={handleSelectChangeYear} />
+        </div>
+        <Button type="gradient" className={styles.button} onClick={nextQuestion}>
+          Next
+        </Button>
       </div>
-      <Button type="gradient" className={styles.button} onClick={nextQuestion}>
-        Next
-      </Button>
     </div>
   );
 };

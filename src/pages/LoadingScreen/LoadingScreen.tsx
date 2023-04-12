@@ -4,25 +4,23 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import { TIMEOUT } from '../../constants/data';
 import { STATUS } from '../../constants/routes';
+import { UserInfoStateProps } from '../../store/types';
 import styles from './LoadingScreen.module.scss';
 
 const LoadingScreen: FC = () => {
-  const ref = useRef<ReturnType<typeof setTimeout>>();
-  const { zodiac, gender } = useSelector(state => state.userInfo);
-
+  const timerIdRef = useRef<number>();
+  const { zodiac, gender } = useSelector((state: { userInfo: UserInfoStateProps }) => state.userInfo);
   const navigate = useNavigate();
 
   useEffect(() => {
-    ref.current = setTimeout(() => {
+    timerIdRef.current = setTimeout(() => {
       navigate(STATUS);
     }, TIMEOUT);
 
     return () => {
-      if (ref.current) {
-        clearTimeout(ref.current);
-      }
+      clearTimeout(timerIdRef.current);
     };
-  }, [navigate]);
+  }, []);
 
   return (
     <div className="wrapper gradient">

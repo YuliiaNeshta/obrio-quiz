@@ -12,11 +12,10 @@ import Header from '../../components/Header/Header';
 import { DATE } from '../../constants/routes';
 import { setGender } from '../../store/actions';
 import styles from './FirstScreen.module.scss';
-import { FirstScreenProps } from './types';
 
-const FirstScreen: FC<FirstScreenProps> = ({ onClick }) => {
+const FirstScreen: FC = () => {
   const dispatch = useDispatch();
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleGenderSelect = (gender: string) => {
     // @ts-ignore
@@ -25,7 +24,7 @@ const FirstScreen: FC<FirstScreenProps> = ({ onClick }) => {
   };
 
   return (
-    <>
+    <div className="wrapper">
       <Header isFirstPage={true} />
       <div className="content">
         <h1 className="heading-xl">Understand Yourself and Improve Relationships With Astrology</h1>
@@ -52,12 +51,12 @@ const FirstScreen: FC<FirstScreenProps> = ({ onClick }) => {
         <div className={styles.footerContainer}>
           <p className={styles.footerText}>
             By continuing I agree with{' '}
-            <a className={styles.link} href="https://asknebula.com/app/privacy-policy" target="_blank">
+            <a className={styles.link} href="https://asknebula.com/app/privacy-policy" target="_blank" rel="noreferrer">
               {' '}
               Privacy policy{' '}
             </a>{' '}
             and{' '}
-            <a className={styles.link} href="https://asknebula.com/app/terms" target="_blank">
+            <a className={styles.link} href="https://asknebula.com/app/terms" target="_blank" rel="noreferrer">
               Terms of use
             </a>
           </p>
@@ -66,7 +65,7 @@ const FirstScreen: FC<FirstScreenProps> = ({ onClick }) => {
           </p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
