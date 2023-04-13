@@ -1,5 +1,4 @@
 import React, { FC, useState } from 'react';
-// @ts-ignore
 import { ReactComponent as SelectArrow } from '../../assets/arrow-down.svg';
 import styles from './Select.module.scss';
 import { CustomSelectProps } from './types';

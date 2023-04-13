@@ -2,11 +2,8 @@ import cn from 'classnames';
 import React, { FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-// @ts-ignore
 import { ReactComponent as ArrowRight } from '../../assets/arrow.svg';
-// @ts-ignore
 import { ReactComponent as Female } from '../../assets/female.svg';
-// @ts-ignore
 import { ReactComponent as Male } from '../../assets/male.svg';
 import Header from '../../components/Header/Header';
 import { DATE } from '../../constants/routes';
@@ -18,7 +15,6 @@ const FirstScreen: FC = () => {
   const navigate = useNavigate();
 
   const handleGenderSelect = (gender: string) => {
-    // @ts-ignore
     dispatch(setGender(gender));
     navigate(DATE);
   };

@@ -2,9 +2,7 @@ import React, { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo_black.png';
 import logoWhite from '../../assets/logo_white.png';
-// @ts-ignore
 import { ReactComponent as ArrowBack } from '../../assets/previous-arrow.svg';
-// @ts-ignore
 import { ReactComponent as WhiteArrowBack } from '../../assets/white-previous-arrow.svg';
 
 import styles from './Header.module.scss';
