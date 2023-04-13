@@ -78,7 +78,16 @@ const DateScreen: FC = () => {
           <Select options={daysInMonth} placeholder="Day" onChange={handleSelectChangeDay} />
           <Select options={birthYears} placeholder="Year" onChange={handleSelectChangeYear} />
         </div>
-        <Button type="gradient" className={styles.button} onClick={nextQuestion}>
+
+        {(!selectedDay || !selectedMonth || !selectedYear) && (
+          <p className={styles.errorText}>Select your birth date!</p>
+        )}
+        <Button
+          type="gradient"
+          className={styles.button}
+          onClick={nextQuestion}
+          isDisabled={!selectedDay || !selectedMonth || !selectedYear}
+        >
           Next
         </Button>
       </div>

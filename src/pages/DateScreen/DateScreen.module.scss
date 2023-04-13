@@ -1,3 +1,5 @@
+@import "../src/styles/colors";
+
 .wrapper{
   display: flex;
   align-items: center;
@@ -18,4 +20,10 @@
 
 .button{
   margin-top: 2rem;
+}
+
+.errorText{
+  color: $error;
+  font-size: 0.8125rem;
+  margin-top: 0.625rem;
 }
