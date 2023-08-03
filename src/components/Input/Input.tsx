@@ -5,7 +5,7 @@ import { InputProps } from './types';
 const Input: FC<InputProps> = ({ placeholder, type = 'text', onValidate }) => {
   const [inputValue, setInputValue] = useState('');
 
-  const handleChange = (event: React.FormEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
 
     if (type === 'email') {
